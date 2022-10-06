@@ -23,9 +23,12 @@ const SearchPokemon = () => {
     navigate(`${nombre}`)
     
   }
+
+
   return (
     <>
       <select onChange={handleSearch} name="" id="">
+        <option value="">Selecciona un Pokemon</option>
         {data.map((item) => (
           <option key={item.name} value={item.name}>
             {item.name}
