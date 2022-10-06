@@ -9,9 +9,10 @@ export const useFetchData = (BASE_URL) => {
       try {
         const response = await fetch(BASE_URL);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         // setFetch_data(data.results);
         setData(data.results)
+       
       } catch (error) {
         console.error(error.message);
       }

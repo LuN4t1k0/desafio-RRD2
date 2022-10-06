@@ -20,10 +20,10 @@ const AppProvider = ({ children }) => {
   // useEffect(() => {
   //   getData();
   // }, []);
-const BaseURL = "https://pokeapi.co/api/v2/pokemon?limit=1154"
-const data = useFetchData(BaseURL)
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=1154"
+const data = useFetchData(BASE_URL)
 
-console.log(data)
+// console.log(data)
 
 
 

@@ -11,7 +11,7 @@ const SearchPokemon = () => {
   const handleSearch = (e) => {
     const pokeName = e.target.value;
     if (pokeName && pokeName != "") {
-      console.log(pokeName);
+      // console.log(pokeName);
       setNombre(pokeName);
     } else {
       alert("No existe");
