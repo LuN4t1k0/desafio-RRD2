@@ -6,7 +6,7 @@ function App() {
  
 
   return (
-    <div className="App">
+    <div className="App text-w">
       <h1>Desafio RRD2</h1>
     </div>
   )
