@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import MyButton from '../components/MyButton'
+import { AppContext } from '../context/AppContext'
 
 const SearchPokemon = () => {
+  const {data } = useContext(AppContext)
   return (
     <>
     <select name="" id="">
-      <option value=""></option>
+      {data.map(item => <option key={item.name} value={item.name}>{item.name}</option> )}
     </select>
-    <button>Buscar Pokemon</button>
+
+    <MyButton text="Buscar Pokemon"/>
+
     </>
   )
 }
