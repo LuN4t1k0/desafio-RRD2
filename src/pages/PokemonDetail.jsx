@@ -4,9 +4,11 @@ const PokemonDetail = () => {
   return (
     <div>
       <h1>Lista detalle</h1>
-      <p></p>
-      <img src="" alt="" />
-      <tipo></tipo>
+      
+      <p>Imagen :</p>
+      <p>Estadistica:</p>
+      <p>tipo</p>
+
     </div>
   )
 }
