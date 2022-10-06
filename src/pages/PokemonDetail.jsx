@@ -41,6 +41,10 @@ console.log(data)
       <p>nombre : {name}</p>
       <p>Experiencie : {data.base_experience}</p>
       <p>peso : {data.weight}</p>
+      <img src={data.sprites.other?.home.front_default} alt="" />
+    
+     
+
 
 
 
@@ -53,4 +57,6 @@ console.log(data)
 }
 
 export default PokemonDetail
+
+
 
