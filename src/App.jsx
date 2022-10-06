@@ -17,8 +17,8 @@ function App() {
   <Route path='/' element={ <Home/> }/>
   <Route path='pokemon' element={<h1>Pokemon</h1>}/>
   <Route path='buscar' element={<h1>Search Pokemon</h1>}/>
-  <Route path='pokemon' element={<h1>API</h1>}/>
-  <Route path='pokemon' element={<h1>Contacto</h1>}/>
+  <Route path='api' element={<h1>API</h1>}/>
+  <Route path='contacto' element={<h1>Contacto</h1>}/>
   <Route path='*' element={<h1>:( Pagína no encontrada</h1>}/>
 
 </Routes>

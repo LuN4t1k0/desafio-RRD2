@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const MyNavBar = () => {
-  const [navbar, setNavbar] = useState(false);
+  const setActiveClass = ({ isActive }) => {
+    isActive ? "active" : null;
+  };
+
   return (
     <nav className="p-5 bg-red-500 shadow text-white md:flex md:items-center md:justify-between">
       <div className="flex justify-between items-center">
@@ -16,11 +19,13 @@ const MyNavBar = () => {
         </span>
       </div>
       <ul className="md:flex md:items-center z[-1] md:z-auto ">
-        <NavLink
+        <NavLink 
+          end
           to={"/"}
           className={
             "text-xl text-white hover:text-black duration-500 mx-4 my-6 md:my-0"
           }
+          style={setActiveClass}
         >
           HOME
         </NavLink>
@@ -37,6 +42,7 @@ const MyNavBar = () => {
           className={
             "text-xl text-white hover:text-black duration-500 mx-4 my-6 md:my-0"
           }
+          style={setActiveClass}
         >
           BUSCAR
         </NavLink>
@@ -48,10 +54,11 @@ const MyNavBar = () => {
           API
         </a>
         <NavLink
-          to={"/"}
+          to={"/contacto"}
           className={
             "text-xl text-white hover:text-black duration-500 mx-4 my-6 md:my-0"
           }
+          style={setActiveClass}
         >
           CONTACTO
         </NavLink>
