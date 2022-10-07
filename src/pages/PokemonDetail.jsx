@@ -1,25 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { useFetchData2 } from "../hooks/useFetch2";
 
 const PokemonDetail = () => {
   const { name } = useParams();
-  const BASE_URL = `https://pokeapi.co/api/v2/pokemon/${name}`;
-  const data = useFetchData2(BASE_URL);
-  console.log(data);
+  const [pokemon, setPokemon] = useState(null);
+
+  const getData = async () => {
+    const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    const data = await result.json();
+    setPokemon(data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, [name]);
+
+  console.log(pokemon)
+
 
   return (
     <div>
-      <h1>Lista detalle</h1>
-      <p>nombre : {name}</p>
-      <p>Experiencie : {data.base_experience}</p>
-      <p>peso : {data.weight}</p>
-      {/* {pokemon ? <img src={pokemon.sprites.back_default} alt="" /> : <p>Vacio</p> } */}
-
-      <img src={data.sprites?.other.home.front_default} alt="" />
+      {pokemon && (
+        <>
+          <p>Nombre : {pokemon.name}</p>
+          <p>Tipo : {pokemon.types[0]?.type.name}</p>
+          {pokemon.stats?.map((item, i) => (
+            <div key={i}>{item.stat.name} : {item.base_stat}</div>
+          ))}
+          <img src={pokemon.sprites?.front_default} alt="" />
+        </>
+      )}
     </div>
   );
 };
+
 
 export default PokemonDetail;

@@ -6,12 +6,12 @@ import { AppContext } from "../context/AppContext";
 const SearchPokemon = () => {
   const [nombre, setNombre] = useState("");
   const { data } = useContext(AppContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+ 
 
   const handleSearch = (e) => {
     const pokeName = e.target.value;
     if (pokeName && pokeName != "") {
-      // console.log(pokeName);
       setNombre(pokeName);
     } else {
       alert("No existe");
@@ -19,11 +19,9 @@ const SearchPokemon = () => {
   };
 
   const searchPokemonByName = (e) => {
-    e.preventDefault()
-    navigate(`${nombre}`)
-    
-  }
-
+    e.preventDefault();
+    navigate(`${nombre}`);
+  };
 
   return (
     <>
@@ -36,7 +34,7 @@ const SearchPokemon = () => {
         ))}
       </select>
 
-      <MyButton search ={searchPokemonByName} text="Buscar Pokemon" />
+      <MyButton search={searchPokemonByName} text="Buscar Pokemon" />
     </>
   );
 };
