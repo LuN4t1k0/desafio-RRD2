@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyButton from "../components/MyButton";
 import { AppContext } from "../context/AppContext";
-
+import okProfesor from '../assets/img/Profesor_Oak_LGPE.png'
 
 const SearchPokemon = () => {
   const [nombre, setNombre] = useState("");
@@ -25,14 +25,15 @@ const SearchPokemon = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center align-middle justify-center h-[calc(100vh-60px)] w-full bg-slate-500">
-        <div className="ok">
-          <img src="" alt="" />
+      <div className="flex flex-col items-center align-middle justify-center h-[calc(100vh-60px)] w-full bg-red-500">
+        
+        <div className="ok pb-5">
+          <img src={okProfesor} alt="" />
         </div>
 
-        <div>
+        <div className="pb-5">
           <select
-            className="h-20 text-xl"
+            className="h-10 text-xl text-center"
             onChange={handleSearch}
             name=""
             id=""
@@ -45,7 +46,9 @@ const SearchPokemon = () => {
             ))}
           </select>
         </div>
-        <MyButton search={searchPokemonByName} text="Buscar Pokemon" />
+        <div className="">
+          <MyButton search={searchPokemonByName} text="Buscar Pokemon" />
+        </div>
       </div>
     </>
   );

@@ -6,8 +6,8 @@ const MyNavBar = () => {
   };
 
   return (
-    <div className="w-full h-[64px] bg-red-500 shadow text-white flex items-center">
-      <div className="izquierda flex items-center">
+    <div className="w-full h-[64px] bg-red-500 text-white flex justify-between items-center">
+      <div className="izquierda flex items-center justify-between">
         <div>
           <img
             className="h-10 pl-4 pr-4"
