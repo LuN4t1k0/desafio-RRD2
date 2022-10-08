@@ -28,7 +28,7 @@ const PokemonDetail = () => {
           {pokemon.stats?.map((item, i) => (
             <div key={i}>{item.stat.name} : {item.base_stat}</div>
           ))}
-          <img src={pokemon.sprites?.front_default} alt="" />
+          <img src={pokemon.sprites.other.home.front_default} alt="" />
         </>
       )}
     </div>
