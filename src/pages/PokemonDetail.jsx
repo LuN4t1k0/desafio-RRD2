@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import MyButton from "../components/MyButton";
 
 
 const PokemonDetail = () => {
   const { name } = useParams();
   const [pokemon, setPokemon] = useState(null);
+  const navitate = useNavigate()
 
   const getData = async () => {
     const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
@@ -16,24 +18,45 @@ const PokemonDetail = () => {
     getData();
   }, [name]);
 
-  console.log(pokemon)
-
+ const handleBack = () => {
+  navitate(-1)
+ }
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center bg-red-500 h-[calc(100vh-60px)]">
       {pokemon && (
         <>
-          <p>Nombre : {pokemon.name}</p>
-          <p>Tipo : {pokemon.types[0]?.type.name}</p>
-          {pokemon.stats?.map((item, i) => (
-            <div key={i}>{item.stat.name} : {item.base_stat}</div>
-          ))}
-          <img src={pokemon.sprites.other.home.front_default} alt="" />
+          <div className="">
+            <img src={pokemon.sprites.other.home.front_default} alt="" />
+          </div>
+          <div className="">
+            <h1 className="text-3xl">{pokemon.name.toUpperCase()}</h1>
+            <h2>{pokemon.types[0]?.type.name}</h2>
+          </div>
+          <div className="">
+            <table className="table-fixed ">
+              <thead>
+                <tr>
+                  <th>Descripcion</th>
+                  <th>Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pokemon.stats?.map((item, i) => (
+                  <tr key={i}>
+                    <td>{item.stat.name}</td>
+                    <td>{item.base_stat}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </>
       )}
+      <MyButton search={handleBack} text="Volver" />
     </div>
+
   );
 };
-
 
 export default PokemonDetail;

@@ -31,7 +31,7 @@ const SearchPokemon = () => {
           <img src={okProfesor} alt="" />
         </div>
 
-        <div className="pb-5">
+        <div className="pb-5 text-black">
           <select
             className="h-10 text-xl text-center"
             onChange={handleSearch}
